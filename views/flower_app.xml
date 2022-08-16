@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+        <!-- Form View for flower app-->
+
+     <record id="flower_app_form_view" model="ir.ui.view">
+    <field name="name">flower.app.form.view</field>
+    <field name="model">flower_app.flower_app</field>
+    <field name="arch" type="xml">
+      <form string="Flower">
+          <group>
+          <group>
+          <field name="CommonName" />
+          <field name="ScientifiName" />
+          <field name="SeasonStart" />
+          <field name="SeasonEnd" />
+          </group>
+          <group>
+            <field name="WateringFreq"/>
+            <field name="WateringAmount"/>
+            <field name="WaterDate"/>
+           </group>
+          </group>
+      </form>
+    </field>
+  </record>
+
+    <record id="flower_app_tree_view" model="ir.ui.view">
+        <field name="name">flower.app.tree.view</field>
+        <field name="model">flower_app.flower_app</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="CommonName" />
+               <field name="ScientifiName" />
+               <field name="SeasonStart" />
+                <field name="SeasonEnd" />
+               <field name="WateringFreq"/>
+               <field name="WateringAmount"/>
+            </tree>
+        </field>
+
+    </record>
+
+  <record id="action_view_flower_app"  model="ir.actions.act_window">
+     <field name="name"> Flower</field>
+     <field name="res_model">flower_app.flower_app</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+
+
+     <!-- Make the App Appear in the menu item list-->
+
+     <menuitem
+        id="flower_app.menu_root"
+        name="Flower"
+        action="action_view_flower_app"
+        sequence="1"/>
+</odoo>
